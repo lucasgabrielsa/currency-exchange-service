@@ -2,12 +2,24 @@ package com.lucasdev.microservices.currencyexchangeservice.bean;
 
 import java.math.BigDecimal;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class ExchangeValue {
 	
+	@Id
 	private Long id;
+
+	@Column(name="currency_from")
 	private String from;
+	
+	@Column(name="currency_to")
 	private String to;
+	
 	private BigDecimal convertionMultiple;
+	private int port;
 	
 	public ExchangeValue() {
 	
@@ -51,5 +63,11 @@ public class ExchangeValue {
 
 	public void setConvertionMultiple(BigDecimal convertionMultiple) {
 		this.convertionMultiple = convertionMultiple;
+	}
+	public void setPort(int port) {
+		this.port = port;
+	}
+	public int getPort() {
+		return port;
 	}
 }
